@@ -1,101 +1,82 @@
-# 0x08. User authentication service
+# Tasks Project README
 
-## Resources:books:
-Read or watch:
-* [Flask documentation](https://intranet.hbtn.io/rltoken/pmustxytL0mvk0Xo1X5A6g)
-* [Requests module](https://intranet.hbtn.io/rltoken/YrhQSCpUMTZ-od0EAPANwg)
-* [HTTP status codes](https://intranet.hbtn.io/rltoken/iWzNygULyRyOnkBPXDZrRw)
+## Project Overview
+This project focuses on building a user authentication service using Python, Flask, and SQLAlchemy. It involves creating a SQLAlchemy model for users, implementing various functionalities such as user registration, login, session management, password reset, and user profile access, all through HTTP endpoints.
 
----
-## Learning Objectives:bulb:
-What you should learn from this project:
+## Project Structure
+The project is organized into several tasks, each addressing a specific aspect of the user authentication service. Below is an overview of each task along with its purpose:
 
----
+### Task 0: User Model
+Define a SQLAlchemy model named User with attributes such as id, email, hashed_password, session_id, and reset_token.
 
-### [0. User model](./user.py)
-* In this task you will create a SQLAlchemy model named User for a database table named users (by using the mapping declaration of SQLAlchemy). 
+### Task 1: Create User
+Implement a method to add a user to the database with provided email and hashed_password.
 
+### Task 2: Find User
+Implement a method to find a user in the database based on arbitrary keyword arguments.
 
-### [1. create user](./db.py)
-* In this task, you will complete the DB class provided below to implement the add_user method.
+### Task 3: Update User
+Implement a method to update a user's attributes in the database.
 
+### Task 4: Hash Password
+Define a method to hash passwords securely using bcrypt.
 
-### [2. Find user](./db.py)
-* In this task you will implement the DB.find_user_by method. This method takes in arbitrary keyword arguments and returns the first row found in the users table as filtered by the method’s input arguments. No validation of input arguments required at this point.
+### Task 5: Register User
+Implement user registration functionality, including checking for existing users and hashing passwords.
 
+### Task 6: Basic Flask App
+Set up a basic Flask app with a single GET route ("/") returning a JSON message.
 
-### [3. update user](./db.py)
-* In this task, you will implement the DB.update_user method that takes as argument a required user_id integer and arbitrary keyword arguments, and returns None.
+### Task 7: Register User Endpoint
+Implement an endpoint to register users via HTTP POST requests.
 
+### Task 8: Credentials Validation
+Implement a method to validate user credentials during login.
 
-### [4. Hash password](./auth.py)
-* In this task you will define a _hash_password method that takes in a password string arguments and returns a string.
+### Task 9: Generate UUIDs
+Implement a method to generate UUIDs for various purposes.
 
+### Task 10: Get Session ID
+Create a method to generate session IDs for users.
 
-### [5. Register user](./auth.py)
-* In this task, you will implement the Auth.register_user in the Auth class provided below:
+### Task 11: Log In
+Implement a login function to handle user authentication via HTTP POST requests.
 
+### Task 12: Find User by Session ID
+Implement a method to find a user based on their session ID.
 
-### [6. Basic Flask app](./app.py)
-* In this task, you will set up a basic Flask app.
+### Task 13: Destroy Session
+Implement a method to destroy a user's session by setting their session ID to None.
 
+### Task 14: Log Out
+Implement a logout function to handle user logout via HTTP DELETE requests.
 
-### [7. Register user](./app.py)
-* In this task, you will implement the end-point to register a user. Define a users function that implements the POST /users route.
+### Task 15: User Profile
+Implement a function to retrieve a user's profile information via HTTP GET requests.
 
+### Task 16: Generate Reset Password Token
+Implement a method to generate reset password tokens for users.
 
-### [8. Credentials validation](./auth.py)
-* In this task, you will implement the Auth.valid_login method. It should expect email and password required arguments and return a boolean.
+### Task 17: Get Reset Password Token
+Implement an endpoint to retrieve reset password tokens via HTTP POST requests.
 
+### Task 18: Update Password
+Implement a method to update a user's password using a reset token.
 
-### [9. Generate UUIDs](./auth.py)
-* In this task you will implement a _generate_uuid function in the auth module. The function should return a string representation of a new UUID. Use the uuid module.
+### Task 19: Update Password Endpoint
+Implement an endpoint to update user passwords via HTTP PUT requests.
 
+## Usage
+To run the project, follow these steps:
+1. Clone the GitHub repository: [alx-backend-user-data](https://github.com/username/alx-backend-user-data)
+2. Navigate to the appropriate directory (`0x03-user_authentication_service`).
+3. Execute the main Python file corresponding to the task you want to test.
 
-### [10. Get session ID](./auth.py)
-* In this task, you will implement the Auth.create_session method. It takes an email string argument and returns the session ID as a string.
+## Running Tests
+To test each functionality, execute the provided main Python file for the respective task. The file contains sample usage scenarios and expected outputs.
 
+## Contributors
+- [Yabs Mullo] (https://github.com/buya25)
 
-### [11. Log in](./app.py)
-* In this task, you will implement a login function to respond to the POST /sessions route.
-
-
-### [12. Find user by session ID](./auth.py)
-* In this task, you will implement the Auth.get_user_from_session_id method. It takes a single session_id string argument and returns a string or None.
-
-
-### [13. Destroy session](./auth.py)
-* In this task, you will implement Auth.destroy_session. The method takes a single user_id integer argument and returns None.
-
-
-### [14. Log out](./app.py)
-* In this task, you will implement a logout function to respond to the DELETE /sessions route.
-
-
-### [15. User profile](./app.py)
-* In this task, you will implement a profile function to respond to the GET /profile route.
-
-
-### [16. Generate reset password token](./auth.py)
-* In this task, you will implement the Auth.get_reset_password_token method. It take an email string argument and returns a string.
-
-
-### [17. Get reset password token](./app.py)
-* In this task, you will implement a get_reset_password_token function to respond to the POST /reset_password route.
-
-
-### [18. Update password](./auth.py)
-* In this task, you will implement the Auth.update_password method. It takes reset_token string argument and a password string argument and returns None.
-
-
-### [19. Update password end-point](./app.py)
-* In this task you will implement the update_password function in the app module to respond to the PUT /reset_password route.
-
-
-### [20. End-to-end integration test](./main.py)
-* Start your app. Open a new terminal window.
-
----
-
-## Author
-* **Joseph Mahiuha** - [Mahiuha](https://github.com/Mahiuha)
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
